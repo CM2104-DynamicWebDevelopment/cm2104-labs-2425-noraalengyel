@@ -1,6 +1,8 @@
 body{
     margin:auto;
     width:80%;
+    align-items: center;
+    justify-content: center;
 }
 
 header, section, article, nav, aside, footer, div{
@@ -41,17 +43,19 @@ header, section, article, nav, aside, footer, div{
     margin: 10px;
 }
 
+#Gallery{
+    display: flex;
+}
+
 .column1{
     width: 500px;
     height: 500px;
     
 }
 .column2{
-    margin-left: 800px;
-    width: 100px;
-    height: 100px;
     margin: 3px;
     padding: 3px;
     float: right;
+    display: flex;
     
 }
