@@ -24,4 +24,20 @@ app.get('/add', function(req,res){
     var y = parseInt(req.query.y);
     res.send("X + Y = " + (x+y)); 
 })
+
+//route 5
+app.ge('/calc',function(req, res){
+    var x = parseInt(req.query.x);
+    var y = parseInt(req.query.y);
+    var op = req.query.operator;
+    if (op == "add"){
+        res.send(x+y);
+    }else if (op == "sub"){
+        res.send(x%y);
+    }else if (op == "mul"){
+        res.send(x*y);
+    }else if (op == "div"){
+        res.send(x/y)
+    }
+});
 app.listen(8080);
