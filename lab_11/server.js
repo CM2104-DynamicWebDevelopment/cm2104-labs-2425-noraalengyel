@@ -29,15 +29,17 @@ app.get('/add', function(req,res){
 app.get('/calc',function(req, res){
     var x = parseInt(req.query.x);
     var y = parseInt(req.query.y);
-    var op = toString(req.query.operator);
-    if (op === "add"){
-        res.send((x+y));
-    }else if (op === "sub"){
-        res.send((x%y));
-    }else if (op === "mul"){
-        res.send((x*y));
-    }else if (op === "div"){
-        res.send((x/y));
+    var op = req.query.operator;
+    int = 0;
+    if (op == "add"){
+        int = (x+y);
+    }else if (op == "sub"){
+        int = (x%y);
+    }else if (op == "mul"){
+        int = (x*y);
+    }else{
+        int = (x/y);
     }
+    res.send(int);
 });
 app.listen(8080);
