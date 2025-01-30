@@ -54,9 +54,10 @@ app.get('/getform', function(req,res){
 });
 
 //route 7
-app.post('/postform',function(req,res){
+app.post('/postform', function(req,res){
     var name = req.body.name;
     var quest = req.body.quest;
     res.send("Hi " + name + " I am sure you will " + quest);
 })
+
 app.listen(8080);
