@@ -26,7 +26,7 @@ app.get('/add', function(req,res){
 })
 
 //route 5
-app.ge('/calc',function(req, res){
+app.get('/calc',function(req, res){
     var x = parseInt(req.query.x);
     var y = parseInt(req.query.y);
     var op = req.query.operator;
@@ -37,7 +37,7 @@ app.ge('/calc',function(req, res){
     }else if (op == "mul"){
         res.send(x*y);
     }else if (op == "div"){
-        res.send(x/y)
+        res.send(x/y);
     }
 });
 app.listen(8080);
