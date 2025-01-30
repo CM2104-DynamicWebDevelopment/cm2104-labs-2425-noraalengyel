@@ -29,7 +29,7 @@ app.get('/add', function(req,res){
 app.get('/calc',function(req, res){
     var x = parseInt(req.query.x);
     var y = parseInt(req.query.y);
-    var op = String(req.query.operator);
+    var op = toString(req.query.operator);
     if (op === "add"){
         res.send((x+y));
     }else if (op === "sub"){
