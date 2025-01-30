@@ -3,6 +3,7 @@ var app = express();
 var knockknock = require('knock-knock-jokes');
 
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}));
 
 //route 1
 app.get('/', function(req,res){
@@ -51,4 +52,11 @@ app.get('/getform', function(req,res){
     var quest = req.query.quest;
     res.send("Hi " + name + " I am sure you will " + quest);
 });
+
+//route 7
+app.post('/postform',function(req,res){
+    var name = req.body.name;
+    var quest = req.body.quest;
+    res.send("Hi " + name + " I am sure you will " + quest);
+})
 app.listen(8080);
