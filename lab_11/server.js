@@ -20,8 +20,8 @@ app.get('/joke', function(req,res){
 
 //route 4
 app.get('/add', function(req,res){
-    var x = parseInt(req.query.x, 10);
-    var y = parseInt(req.query.y, 10);
-    res.send("X + Y = " + (x+y));
+    var x = (req.query.x);
+    var y = (req.query.y);
+    res.send("X + Y = " + (parseInt(x,10) + parseInt(y,10))); 
 })
 app.listen(8080);
