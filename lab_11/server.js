@@ -37,7 +37,7 @@ app.get('/calc',function(req, res){
         int = (x%y);
     }else if (op == "mul"){
         int = (x*y);
-    }else{
+    }else if (op == "div"){
         int = (x/y);
     }
     res.send(int);
