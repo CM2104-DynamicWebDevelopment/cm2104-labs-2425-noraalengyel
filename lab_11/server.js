@@ -26,7 +26,7 @@ app.get('/add', function(req,res){
 })
 
 //route 5
-app.get('/calc',function(req, res){
+app.get('/calc',function(req,res){
     var x = parseInt(req.query.x);
     var y = parseInt(req.query.y);
     var op = req.query.operator;
