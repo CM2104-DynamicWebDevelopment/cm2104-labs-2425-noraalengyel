@@ -40,6 +40,6 @@ app.get('/calc',function(req,res){
     }else if (op == "div"){
         int = (x/y);
     }
-    res.send(int);
+    res.send(" " + int);
 });
 app.listen(8080);
