@@ -41,7 +41,7 @@ app.get('/', function(req,res){
 });
 
 //route for love in tracks, artists and albums
-app.get('/searcLove', function(req,res){
+app.get('/searchLove', function(req,res){
     getTracks('love', res);
 });
 
