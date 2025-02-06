@@ -4,7 +4,7 @@ var app = express();
 var SpotifyWebApi = require('spotify-web-api-node');
 var spotifyApi = new SpotifyWebApi({
     clientId: '04d54380020e40298bcf5073d0b386aa',
-    slientSecret: '762d52c7eb764aa492cc7258d1191521'
+    clientSecret: '762d52c7eb764aa492cc7258d1191521'
 });
 
 //retrieve an access token
