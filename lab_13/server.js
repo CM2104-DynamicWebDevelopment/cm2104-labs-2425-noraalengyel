@@ -51,6 +51,7 @@ app.post('/search', function(req, res){
         //console.log(response);
 
         for (var i = 0; i < result.lenth; i++){
+            console.log("I'm in an array, yay!")
             console.log(result.length)
             output += "<div>";
             output += "<h3>" + result[i].name + "</h3>";
