@@ -13,7 +13,7 @@ app.use(express.static('public'));
 var db;
 
 //run the connect method
-conectDB();
+connectDB();
 
 async function connectDB() {
     //Use connect method to connect to the server
