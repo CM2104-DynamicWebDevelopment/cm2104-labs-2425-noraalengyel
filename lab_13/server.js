@@ -26,7 +26,7 @@ async function connectDB() {
 
 //adding all quotes route
 app.get('/all', function(req,res){
-    db.collection('quotes').find().toArrat(function(err, result){
+    db.collection('quotes').find().toArray(function(err, result){
         if (err) throw err;
 
         var output = "<h1>All the quotes</h1>";
