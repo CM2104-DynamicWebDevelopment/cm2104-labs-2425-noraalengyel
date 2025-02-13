@@ -43,6 +43,7 @@ async function getTracks(searchterm, res) {
                     "<h4>" + track.artists[0].name + "</h4>" + 
                     "<img src='" + track.album.images[0].url + "'>" + 
                     "<a href='" + track.external_urls.spotify + "'> Track Details </a>" + 
+                    //"Top tracks from this artist: " + track.artist[0].getTopTracks
                 "</div>";
                 console.log(HTMLResponse);
             }
@@ -50,6 +51,15 @@ async function getTracks(searchterm, res) {
         }, function(err){
             console.log(err);
     });  
+}
+
+async function getTopTracks(artist,res) {
+    spotifyApi.getArtistTopTracks(artist, 'GB')
+        .then(function(data){
+            console.log(data.body);
+        }, function(err){
+            console.log('Something went wrong!',err);
+        });
 }
 
 app.use(express.static('public'));
