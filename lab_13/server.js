@@ -13,17 +13,7 @@ app.use(express.urlencoded({extended:true}));
 
 var db;
 
-//run the connect method
-connectDB();
 
-async function connectDB() {
-    //Use connect method to connect to the server
-    await client.connect();
-    console.log('Connected succesfully to server');
-    db = client.db(dbname);
-    //everything is good lets start
-    app.listen(8080);
-}
 
 //adding all quotes route
 app.get('/all', function(req,res){
@@ -54,7 +44,7 @@ app.post('/quotes', function(req,res){
 });
 
 app.post('/search', function(req, res){
-    db.collection('quotes').find({name:"Ross"}).toArray(function(err, result){
+    db.collection('quotes').find(req.body).toArray(function(err, result){
         if (err) throw err;
         var output = "<h1>All the quotes</h1>";
         console.log(req.body);
@@ -71,3 +61,15 @@ app.post('/search', function(req, res){
         res.send(output);
     });
 });
+
+//run the connect method
+connectDB();
+
+async function connectDB() {
+    //Use connect method to connect to the server
+    await client.connect();
+    console.log('Connected succesfully to server');
+    db = client.db(dbname);
+    //everything is good lets start
+    app.listen(8080);
+}
