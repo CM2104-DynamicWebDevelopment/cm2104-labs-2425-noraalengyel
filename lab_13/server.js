@@ -61,7 +61,8 @@ app.post('/search', function(req, res){
         console.log(req.body);
         //console.log(response);
 
-        for (var i = 0; i<result.lenth; i++){
+        for (var i = 0; i < result.lenth; i++){
+            console.log(result.length)
             output += "<div>";
             output += "<h3>" + result[i].name + "</h3>";
             output += "<p>" + result[i].quote + "</p>";
