@@ -50,7 +50,7 @@ app.post('/search', function(req, res){
         console.log(req.body);
         //console.log(response);
 
-        for (var i = 0; i < result.lenth; i++){
+        for (var i = 0; i < result.length; i++){
             console.log("I'm in an array, yay!")
             console.log(result.length)
             output += "<div>";
