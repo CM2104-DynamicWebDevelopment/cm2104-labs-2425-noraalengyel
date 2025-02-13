@@ -52,9 +52,9 @@ app.post('/quotes', function(req,res){
     });
 });
 
-app.post('/search', function(req,res){
+app.post('/search', function(req, res){
     db.collection('quotes').find(req.body).toArray(function(err, result){
-        console.log("json: "+req.body)
+        console.log(req.body)
         if (err) throw err;
         var output = "<h1>All the quotes</h1>";
 
