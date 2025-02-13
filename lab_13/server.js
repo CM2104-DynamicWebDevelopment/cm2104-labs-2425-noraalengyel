@@ -9,6 +9,7 @@ const app = express();
 
 //code to define the public
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}));
 
 var db;
 
@@ -42,7 +43,7 @@ app.get('/all', function(req,res){
 });
 
 
-app.use(express.urlencoded({extended:true}));
+
 
 app.post('/quotes', function(req,res){
     db.collection('quotes').insertOne(req.body, function(err, result){
@@ -58,7 +59,7 @@ app.post('/search', function(req, res){
         if (err) throw err;
         var output = "<h1>All the quotes</h1>";
         console.log(req.body);
-        console.log(response);
+        //console.log(response);
 
         for (var i = 0; i<result.lenth; i++){
             output += "<div>";
