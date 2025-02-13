@@ -47,12 +47,8 @@ app.post('/search', function(req, res){
     db.collection('quotes').find(req.body).toArray(function(err, result){
         if (err) throw err;
         var output = "<h1>All the quotes</h1>";
-        console.log(req.body);
-        //console.log(response);
 
         for (var i = 0; i < result.length; i++){
-            console.log("I'm in an array, yay!")
-            console.log(result.length)
             output += "<div>";
             output += "<h3>" + result[i].name + "</h3>";
             output += "<p>" + result[i].quote + "</p>";
@@ -65,6 +61,16 @@ app.post('/search', function(req, res){
 
 app.post('/delete', function(req,res){
     db.collection('quotes').deleteOne(req.body, function(err,result){
+        if (err) throw err;
+        res.redirect('/');
+    });
+});
+
+app.post('/update', function(req,res){
+    var query = {quote: req.body.quote};
+    var newvalues = {$set: {name: req.body.newname, quote: req.body.newquote}};
+
+    db.collection('quotes').updateOne(query,newvalues, function(err, result){
         if (err) throw err;
         res.redirect('/');
     });
