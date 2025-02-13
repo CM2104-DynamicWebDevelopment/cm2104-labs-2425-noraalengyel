@@ -54,6 +54,7 @@ app.post('/quotes', function(req,res){
 
 app.post('/search', function(req,res){
     db.collection('quotes').find(req.body).toArray(function(err, result){
+        console.log("json: "+req.body)
         if (err) throw err;
         var output = "<h1>All the quotes</h1>";
 
@@ -62,7 +63,8 @@ app.post('/search', function(req,res){
             output += "<h3>" + result[i].name + "</h3>";
             output += "<p>" + result[i].quote + "</p>";
             output += "</div>"; 
-        }
+        }7
+        console.log("output: " + output);
         res.send(output);
     });
 });
