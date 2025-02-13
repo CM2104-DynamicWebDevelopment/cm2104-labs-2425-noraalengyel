@@ -66,7 +66,7 @@ app.post('/search', function(req, res){
             output += "<h3>" + result[i].name + "</h3>";
             output += "<p>" + result[i].quote + "</p>";
             output += "</div>"; 
-        }7
+        }
         console.log(output);
         res.send(output);
     });
