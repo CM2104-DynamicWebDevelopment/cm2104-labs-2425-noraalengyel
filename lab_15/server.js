@@ -119,8 +119,6 @@ app.get('/users', function(req,res){
 
   db.collection('people').findOne({"login.username": uname}, function(err,result){
     if (err) throw err;
-
-    res.render('pages/users');
   });
 
 });
