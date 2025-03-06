@@ -102,7 +102,7 @@ app.get('/remuser', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
   res.render('pages/remuser')
 });
-//logour route cause the page to Logout.
+//logour route cause the page to Logsout.
 //it sets our session.loggedin to false and then redirects the user to the login
 app.get('/logout', function(req, res) {
   req.session.loggedin = false;
@@ -122,7 +122,7 @@ app.get('/', function(req,res){
     //the result of the query is sent to the users page a the "users" array
     res.render('pages/users', {
       user: result,
-      loggedInUser : req.session.user
+      loggedInUser : req.session.currentUser
     })
   });
 
@@ -140,7 +140,7 @@ app.post('/dologin', function(req, res) {
   var uname = req.body.username;
   var pword = req.body.password;
 
-  var currentuser = req.session.currentuser;
+  //var currentuser = req.session.currentuser;
 
   db.collection('people').findOne({"login.username":uname}, function(err, result) {
     if (err) throw err;
@@ -150,7 +150,9 @@ app.post('/dologin', function(req, res) {
 
 
 
-    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/') }
+    if(result.login.password == pword){ req.session.loggedin = true;
+      req.session.currentUser = uname
+      res.redirect('/') }
 
 
 
