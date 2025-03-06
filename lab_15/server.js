@@ -140,7 +140,7 @@ app.post('/dologin', function(req, res) {
   var uname = req.body.username;
   var pword = req.body.password;
 
-
+  var currentuser = req.session.currentuser;
 
   db.collection('people').findOne({"login.username":uname}, function(err, result) {
     if (err) throw err;
