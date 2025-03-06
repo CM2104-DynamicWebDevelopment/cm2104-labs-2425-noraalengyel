@@ -42,14 +42,17 @@ async function connectDB() {
 
 app.get('/', function(req,res) {
   var result = [];
-  for (var i = 0; i < result.length; i++){
+  db.collection('quotes').find().toArray(function(err, result){
+    for (var i = 0; i < result.length; i++){
     result = result + [{name: result[i].name, quote:result[i].quote}]
-  }
+    }
 
-  res.render('pages/index',{
+    res.render('pages/index',{
     quotes:result
-  })
+    })
+  })  
 });
+
 app.get('/add', function(req,res) {
   res.render('pages/add')
 });
