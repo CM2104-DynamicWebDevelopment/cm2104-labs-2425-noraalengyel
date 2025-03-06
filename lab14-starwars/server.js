@@ -41,10 +41,9 @@ async function connectDB() {
 //you need to complete these
 
 app.get('/', function(req,res) {
-  var result = [];
   db.collection('quotes').find().toArray(function(err, result){
-    for (var i = 0; i < quotes.length; i++){
-    result = result + [{name: result[i].name, quote:result[i].quote}]
+    for (var i = 0; i < result.length; i++){
+    output = output + [{name: result[i].name, quote:result[i].quote}]
     }
 
     res.render('pages/index',{
