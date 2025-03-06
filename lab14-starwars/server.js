@@ -41,7 +41,14 @@ async function connectDB() {
 //you need to complete these
 
 app.get('/', function(req,res) {
-  res.render('pages/index')
+  var result = [];
+  for (var i = 0; i < result.length; i++){
+    result = result + {name: result[i].name, quote:result[i].quote}
+  }
+
+  res.render('index.ejs',{
+    quotes:result
+  })
 });
 app.get('/add', function(req,res) {
   res.render('pages/add')
@@ -57,7 +64,7 @@ app.get('/update', function(req,res) {
 });
 
 
-
+//this route gets all the quotes from the db
 app.get('/allquotes', function(req, res) {
   db.collection('quotes').find().toArray(function(err, result) {
     if (err) throw err;
