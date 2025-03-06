@@ -118,11 +118,12 @@ app.get('/', function(req,res){
 
   db.collection('people').find().toArray(function(err,result){
     if (err) throw err;
+    var currentlyLoggedInHooman = req.session.currentUser
 
     //the result of the query is sent to the users page a the "users" array
     res.render('pages/users', {
       user: result,
-      loggedInUser : req.session.currentUser
+      loggedInUser: currentlyLoggedInHooman
     })
   });
 
