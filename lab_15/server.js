@@ -123,7 +123,7 @@ app.get('/', function(req,res){
     //the result of the query is sent to the users page a the "users" array
     res.render('pages/users', {
       user: result,
-      loggedInUser: currentlyLoggedInHooman
+      loggedInUser: "Ross"
     })
   });
 
