@@ -43,7 +43,7 @@ async function connectDB() {
 app.get('/', function(req,res) {
   var result = [];
   db.collection('quotes').find().toArray(function(err, result){
-    for (var i = 0; i < result.length; i++){
+    for (var i = 0; i < quotes.length; i++){
     result = result + [{name: result[i].name, quote:result[i].quote}]
     }
 
