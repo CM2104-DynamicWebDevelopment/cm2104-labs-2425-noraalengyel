@@ -46,7 +46,7 @@ app.get('/', function(req,res) {
     result = result + {name: result[i].name, quote:result[i].quote}
   }
 
-  res.render('index.ejs',{
+  res.render('pages/index',{
     quotes:result
   })
 });
