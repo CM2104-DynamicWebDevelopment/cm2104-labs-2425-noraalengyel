@@ -43,7 +43,7 @@ async function connectDB() {
 app.get('/', function(req,res) {
   var result = [];
   for (var i = 0; i < result.length; i++){
-    result = result + {name: result[i].name, quote:result[i].quote}
+    result = result + [{name: result[i].name, quote:result[i].quote}]
   }
 
   res.render('pages/index',{
