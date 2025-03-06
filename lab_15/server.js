@@ -110,6 +110,20 @@ app.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
+//adding a section to the top of the index page to welcome the currently logged in user
+app.get('/users', function(req,res){
+  //check we are logged in
+  if(!req.session.loggedin){res.redirect('/login');return;}
+
+  var uname = req.query.username;
+
+  db.collection('people').findOne({"login.username": uname}, function(err,result){
+    if (err) throw err;
+
+    res.render('pages/users');
+  });
+
+});
 
 
 
@@ -195,3 +209,5 @@ var datatostore = {
     res.redirect('/')
   })
 });
+
+
