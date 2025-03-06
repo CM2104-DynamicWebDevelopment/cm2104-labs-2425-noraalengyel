@@ -152,6 +152,7 @@ app.post('/dologin', function(req, res) {
 
     if(result.login.password == pword){ req.session.loggedin = true;
       req.session.currentUser = uname
+      console.log("current user: " + req.session.currentUser)
       res.redirect('/') }
 
 
