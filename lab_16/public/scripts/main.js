@@ -11,6 +11,6 @@ $('#form').submit(function(){
 })
 
 socket.on('chat message', function(msg){
-    $('#messages').append("<li><strong>"+msg.sender+": </strong>"+msg+"</li>");
+    $('#messages').append("<li><strong>"+msg.username+": </strong>"+msg.message+"</li>");
     window.scrollTo(0,document.body.scrollHeight);
 });
