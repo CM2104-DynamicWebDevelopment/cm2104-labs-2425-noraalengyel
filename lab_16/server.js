@@ -6,15 +6,15 @@ const io = require('socket.io')(http);
 app.use(express.static('public'))
 // set the view engine to ejs
 app.set('view engine', 'ejs');
-app.get('/', function(req, res){
- res.render('pages/index');
+app.get('/', function (req, res) {
+    res.render('pages/index');
 });
-io.on('connection', function(socket){
- console.log('a user connected');
- socket.on('disconnect', function () {
-    console.log('user disconnected');
+io.on('connection', function (socket) {
+    console.log('a user connected');
+    socket.on('disconnect', function () {
+        console.log('user disconnected');
     })
 });
-http.listen(8080, function(){
- console.log('listening on *:8080');
-})
+http.listen(8080, function () {
+    console.log('listening on *:8080');
+});
