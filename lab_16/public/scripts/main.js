@@ -2,6 +2,7 @@ var socket = io();
 
 $('#form').submit(function(){
     var message = $('#input').val();
+    var username = $('#username').val();
     if (message){
         socket.emit('chat message', {username:username, message:message});
         $("#input").val("");
@@ -10,6 +11,6 @@ $('#form').submit(function(){
 })
 
 socket.on('chat message', function(msg){
-    $('#messages').append("<li><strong>"+msg.username+": </strong>"+msg+"</li>");
+    $('#messages').append("<li><strong>"+msg.sender+": </strong>"+msg+"</li>");
     window.scrollTo(0,document.body.scrollHeight);
 });
