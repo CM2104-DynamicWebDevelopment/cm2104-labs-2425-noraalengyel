@@ -53,7 +53,7 @@ async function connectDB() {
 //********** GET ROUTES - Deal with displaying pages ***************************
 
 //this is our root route
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
   //if the user is not logged in redirect them to the login page
   if(!req.session.loggedin){res.redirect('/login');return;}
 
@@ -66,7 +66,7 @@ app.get('/', function(req, res) {
     })
   });
 
-});
+});*/
 
 //this is our login route, all it does is render the login.ejs page.
 app.get('/login', function(req, res) {
