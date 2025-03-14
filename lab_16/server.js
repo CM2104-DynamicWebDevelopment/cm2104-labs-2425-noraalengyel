@@ -27,7 +27,7 @@ io.on('connection', function(socket){
     socket.on('chat message', function(data){
         const { username, message, room } = data; 
         console.log(`Message from ${username} in room ${room}: ${message}`);
-        socket.to(room).emit('chat message', {usrname, message});
+        socket.to(room).emit('chat message', {username, message});
     });
 });
 
