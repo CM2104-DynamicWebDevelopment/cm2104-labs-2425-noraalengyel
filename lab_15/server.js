@@ -248,7 +248,7 @@ app.post('/doupdate', function (req, res) {
     "nat": req.body.nat
   };
 
-  db.collection('people').insertOne(updatedData, function (err, result) {
+  db.collection('people').updateOne({"login.username":uname}, {$set: updatedData}, function(err,result){
     if (err) throw err;
     console.log('user updated');
     //when complete redirect to the index
