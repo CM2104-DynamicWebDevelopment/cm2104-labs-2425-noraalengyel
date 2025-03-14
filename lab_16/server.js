@@ -20,11 +20,13 @@ io.on('connection', function(socket){
     });
 
     socket.on('join room', function(room){
-        console.log('User joined room: ${room}');
+        console.log(`User joined room: ${room}`);
         socket.join(room);
     })
 
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function(data){
+        const { username, message, room } = data; 
+        console.log(`Message from ${username} in room ${room}: ${message}`);
         socket.to(room).emit('chat message', {usrname, message});
     });
 });
