@@ -19,8 +19,13 @@ io.on('connection', function(socket){
         console.log('user disconnected');
     });
 
+    socket.on('join room', function(room){
+        console.log('User joined room: ${room}');
+        socket.join(room);
+    })
+
     socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
+        socket.to(room).emit('chat message', {usrname, message});
     });
 });
 
