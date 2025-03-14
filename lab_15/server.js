@@ -248,9 +248,31 @@ app.post('/doupdate', function (req, res) {
     "nat": req.body.nat
   };
 
-  db.collection('people').updateOne({"login.username":uname}, {$set: updatedData}, function(err,result){
-    if (err) throw err;
-    console.log('user updated');
+  db.collection('people').updateOne({ "login.username": uname }, { $set: updatedData }, function (err, result) {
+    if (err) {
+      console.error("Error updating user:", err);
+      res.status(500).send("Error updating user");
+      return;
+    }
+
+    // Check if the update was successful
+    if (result.matchedCount === 0) {
+      console.log('No user found with username: ', uname);
+      res.redirect('/');  // No matching user found
+      return;
+    }
+
+    // Log the result of the update operation
+    console.log('Update result:', result);
+
+    // If a document was updated, redirect back to the root
+    if (result.modifiedCount > 0) {
+      console.log('User updated successfully');
+    } else {
+      console.log('No changes were made to the user data');
+    }
+
+    //console.log('user updated');
     //when complete redirect to the index
     res.redirect('/')
   });
